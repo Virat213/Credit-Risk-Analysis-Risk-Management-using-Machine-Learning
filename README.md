@@ -1,33 +1,38 @@
 # Credit Risk Analysis and Risk Management using Machine Learning
 
-This project is about predicting the credit risk of a loan applicant using machine learning.
+This project focuses on predicting the credit risk of loan applicants using Machine Learning.
 
-The model takes information such as the applicant's age, income, employment length, loan amount, loan purpose, loan grade and credit history. Based on these details, it predicts whether the applicant is likely to be a low-risk or high-risk applicant.
+The model takes information such as age, income, employment length, loan amount, loan purpose, interest rate and credit history. Based on these details, it predicts whether an applicant is likely to be a low-risk or high-risk applicant.
 
-The project also shows the probability of default predicted by the model.
+It also provides the estimated probability of loan default.
 
-Live Project:
+**Live Project:**  
+https://credit-risk-frontend-sepia.vercel.app/
+
+**Backend API:**  
 https://credit-risk-app-rs2h.onrender.com/
 
-
-What I did in this project
-
-- Performed Exploratory Data Analysis (EDA)
-- Cleaned and preprocessed the dataset
-- Handled missing values
-- Encoded categorical variables
-- Scaled numerical features
-- Trained multiple machine learning models
-- Compared the performance of the models
-- Tuned the best model using GridSearchCV
-- Used SHAP to understand model predictions
-- Created a FastAPI backend
-- Created a simple web interface using HTML, CSS and JavaScript
-- Added Docker support
-- Deployed the project using Render
+**API Documentation:**  
+https://credit-risk-app-rs2h.onrender.com/docs
 
 
-Dataset
+## What I did in this project
+
+- Performed Exploratory Data Analysis (EDA).
+- Cleaned and preprocessed the dataset.
+- Handled missing values.
+- Encoded categorical variables.
+- Scaled numerical features.
+- Trained and compared multiple Machine Learning models.
+- Tuned the best-performing model using GridSearchCV.
+- Used SHAP to understand model predictions.
+- Created a frontend using HTML, CSS and JavaScript.
+- Developed the backend using FastAPI.
+- Used Docker for containerization.
+- Deployed the frontend on Vercel and backend on Render.
+
+
+## Dataset
 
 The dataset contains information about loan applicants and their loan details.
 
@@ -46,67 +51,84 @@ Some of the main columns are:
 - cb_person_default_on_file - Previous default history
 - cb_person_cred_hist_length - Length of credit history
 
-The target variable is loan_status.
+The target variable is loan_status:
 
-0 means no default and 1 means default.
+- 0 means no default.
+- 1 means default.
 
 
-Machine Learning Models
+## Machine Learning Models
 
-I trained and compared the following models:
+I trained and compared the following classification models:
 
 - Logistic Regression
 - Random Forest
 - Gradient Boosting
 - XGBoost
 
-The models were compared using Accuracy, Precision, Recall, F1 Score, ROC-AUC and PR-AUC.
+The models were evaluated using Accuracy, Precision, Recall, F1 Score, ROC-AUC and PR-AUC.
 
-The best model based on ROC-AUC was then tuned using GridSearchCV.
+The best model based on ROC-AUC was selected and tuned using GridSearchCV.
 
 
-Data Preprocessing
+## Data Preprocessing
 
 For numerical columns, missing values were filled using the median and the features were scaled using StandardScaler.
 
 For categorical columns, missing values were filled using the most frequent value and categorical values were converted using OneHotEncoder.
 
-The preprocessing steps and trained model were saved using Joblib so that the same processing can be used when making new predictions.
+The trained model and preprocessing pipeline were saved using Joblib for making predictions on new applicant data.
 
 
-SHAP Explainability
+## SHAP Explainability
 
-I used SHAP to understand which features have the most effect on the model's predictions.
+I used SHAP to understand which features have the most influence on the model's predictions.
 
-The project includes SHAP summary plots, feature importance and an individual applicant explanation using a SHAP waterfall plot.
+The project includes:
 
-This helps in understanding why the model predicts an applicant as higher or lower risk.
+- SHAP summary plot
+- Feature importance
+- SHAP bar plot
+- Individual applicant explanation
+- SHAP waterfall plot
 
-
-FastAPI
-
-FastAPI is used as the backend of the project.
-
-The main API endpoints are:
-
-GET /
-
-Used to check whether the application is running.
-
-GET /health
-
-Used as a simple health check.
-
-POST /predict
-
-Takes applicant information and returns the predicted risk level and default probability.
-
-FastAPI also provides API documentation at:
-
-/docs
+These visualizations help in understanding how different features contribute to a prediction.
 
 
-Project Structure
+## Frontend and Backend
+
+The project uses a separate frontend and backend.
+
+**Frontend:**
+
+The frontend is developed using HTML, CSS and JavaScript. It provides a form where users can enter applicant information and view the prediction results.
+
+**Backend:**
+
+FastAPI is used to receive applicant information and communicate with the trained Machine Learning model.
+
+The backend provides three main endpoints:
+
+- GET / - Checks whether the API is running.
+- GET /health - Checks the API health.
+- POST /predict - Accepts applicant information and returns the predicted risk level and default probability.
+
+The API documentation is available at:
+
+https://credit-risk-app-rs2h.onrender.com/docs
+
+
+## How the application works
+
+1. The user enters applicant information on the website.
+2. JavaScript sends the information to the FastAPI backend.
+3. The backend processes the input using the saved preprocessing pipeline.
+4. The trained XGBoost model makes a prediction.
+5. The backend returns the risk level and default probability.
+6. The frontend displays the result.
+
+
+## Project Structure
 
 Credit Risk/
 │
@@ -132,44 +154,44 @@ Credit Risk/
 │   ├── 03_model_training.ipynb
 │   └── 04_model_explainability.ipynb
 │
-├── static/
-│   ├── background.png
-│   ├── script.js
-│   └── style.css
-│
-├── templates/
-│   └── index.html
+├── frontend/
+│   ├── index.html
+│   └── static/
+│       ├── background.png
+│       ├── script.js
+│       └── style.css
 │
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
 
 
-Technologies Used
+## Technologies Used
 
-Python
-Pandas
-NumPy
-Scikit-learn
-XGBoost
-SHAP
-FastAPI
-Uvicorn
-HTML
-CSS
-JavaScript
-Docker
-GitHub
-Render
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- XGBoost
+- SHAP
+- FastAPI
+- Uvicorn
+- HTML
+- CSS
+- JavaScript
+- Docker
+- Git and GitHub
+- Render
+- Vercel
 
 
-How to run the project locally
+## Running the Backend Locally
 
 First clone the repository:
 
 git clone https://github.com/Virat213/Credit-Risk-Analysis-Risk-Management-using-Machine-Learning.git
 
-Go to the project folder:
+Move into the project directory:
 
 cd Credit-Risk-Analysis-Risk-Management-using-Machine-Learning
 
@@ -177,7 +199,7 @@ Create a virtual environment:
 
 python -m venv venv
 
-Activate the virtual environment on Windows:
+Activate it on Windows:
 
 venv\Scripts\activate
 
@@ -185,64 +207,58 @@ Install the required packages:
 
 pip install -r requirements.txt
 
-Start the FastAPI application:
+Start the FastAPI backend:
 
 uvicorn api.main:app --reload
 
-Then open:
-
-http://127.0.0.1:8000
-
-The API documentation is available at:
+Open the API documentation:
 
 http://127.0.0.1:8000/docs
 
 
-Docker
+## Docker
 
-The project also includes a Dockerfile.
+The backend can also be run using Docker.
 
-To build the Docker image:
+Build the image:
 
 docker build -t credit-risk-app .
 
-To run the container:
+Run the container:
 
 docker run -d -p 8000:8000 --name credit-risk-container credit-risk-app
 
-Then open:
 
-http://localhost:8000
+## Deployment
 
+The frontend and backend are deployed separately.
 
-Deployment
+Frontend deployment: Vercel  
+https://credit-risk-frontend-sepia.vercel.app/
 
-The project is deployed using Render.
-
-Live application:
-
+Backend deployment: Render  
 https://credit-risk-app-rs2h.onrender.com/
 
-
-Limitations
-
-This project is mainly created for learning and demonstration purposes.
-
-The prediction made by the model is only an estimate based on the patterns learned from the dataset. It should not be considered as a guaranteed result or used as the only factor for making real-world lending decisions.
+The frontend communicates with the backend through API requests.
 
 
-Future Improvements
+## Limitations
 
-Some things that can be added in the future are:
+This project is mainly developed for learning and demonstration purposes.
 
-- More machine learning models
-- Better hyperparameter tuning
-- More financial features
-- Better frontend validation
-- More detailed prediction explanations
-- Model performance monitoring
+The predictions are estimates based on patterns learned from the training dataset. They are not guaranteed outcomes and should not be used as the only factor in real-world lending decisions.
 
 
-Author
+## Future Improvements
+
+- Try additional Machine Learning algorithms.
+- Improve hyperparameter tuning.
+- Add more financial features.
+- Improve frontend validation.
+- Add more detailed prediction explanations.
+- Monitor model performance after deployment.
+
+
+## Author
 
 Virat Raj
