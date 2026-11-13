@@ -70,7 +70,7 @@ form.addEventListener("submit", async function (event) {
     try {
 
         // Send applicant data to FastAPI
-        const response = await fetch("/predict", {
+        const response = await fetch("https://credit-risk-app-rs2h.onrender.com/predict", {
 
             method: "POST",
 

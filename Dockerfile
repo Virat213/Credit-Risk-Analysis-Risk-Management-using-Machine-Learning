@@ -1,3 +1,4 @@
+
 FROM python:3.10-slim
 
 WORKDIR /app
@@ -8,8 +9,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY api ./api
 COPY model ./model
-COPY static ./static
-COPY templates ./templates
 
 EXPOSE 8000
 
